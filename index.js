@@ -13,53 +13,39 @@ const questions = [
   },
   {
     type: 'input',
-    message: 'provide your GitHub profile URL:',
-    name: 'githubProfileURL',
+    message: 'project description:',
+    name: 'Description',
   },
   {
     type: 'input',
-    message: 'provide your GitHub userName:',
-    name: 'githubuserName',
+    message: 'installation instructions:',
+    name: 'Installation',
   },
-  {
-    type: 'input',
-    message: 'enter your github repository name:',
-    name: 'projectName',
-  },
-  {
-    type: 'input',
-    message: 'enter a summary describing your project:',
-    name: 'projectSummary',
-  },
-  {
-    type: 'input',
-    message: 'enter the assets URL for the screenshot of your project demonstrating how it work',
-    name: 'demoURL',
-  },
-  {
-    type: 'input',
-    message: 'describe the installation process:',
-    name: 'installationInstructions',
-  },
+
+ 
   {
     type: 'input',
     message: 'describe how to use the project application',
-    name: 'usageInstructions',
+    name: 'Usage',
   },
   {
     type: 'input',
     message: 'providing testing instructions:',
-    name: 'testInstuctions',
+    name: 'Tests',
   },
   {
     type: 'input',
     message: 'provide contribution guidelines:',
-    name: 'contributionGuidelines',
+    name: 'contribution',
   },
   {
-    type: 'input',
+    type: 'list',
     message: 'enter the license for your project:',
-    name: 'license',
+    name: 'License',
+    choices:['MIT', 'MPL','GNU GPL v2'],
+    Filter(val) {
+      return val.toLowercase();
+    }
   },
   {
     type: 'input',
@@ -68,8 +54,21 @@ const questions = [
   },
 ];
 
+       
+
 // function to write README file
 function writeToFile(fileName, data) {
+ 
+  fs.writeFile("README.md", generateMarkdown(data), (err) => {
+    if (err) {
+       console.log('could not save file', err)
+     } else {
+       console.log('Success: new README.md generated inside current folder')
+     }
+    console.log(err)
+ // `!`
+
+})
 }
 
 // function to initialize program
@@ -78,11 +77,21 @@ inquirer.prompt(questions)
 .then(data =>{ 
   console.log("DATA: ", data)
   
-  fs.writeFile("README.md", generateMarkdown(data), (err) => {
-    console.log(err)
-  })
-});
-}
+  writeToFile("README.md", generateMarkdown(data))// ,(err) => {
+  // if (err) {
+   //   console.log('could not save file', err)
+   // } else {
+   //   console.log('Success: new README.md generated inside current folder')
+   // }
+    
+//console.log(err)
+  });
+};
+
+
+
+//console.log(err)
+
 
 // function call to initialize program
 init();
