@@ -5,33 +5,37 @@ const generateMarkdown = require("./utils/generateMarkdown");
 
 // array of questions for user
 const questions = [
-    
+  {
+    type: 'input',
+    message: 'Enter your github username:',
+    name: 'github',
+  },
   {
     type: 'input',
     message: 'Enter your project title:',
-    name: 'Title',
+    name: 'title',
   },
   {
     type: 'input',
     message: 'project description:',
-    name: 'Description',
+    name: 'description',
   },
   {
     type: 'input',
     message: 'installation instructions:',
-    name: 'Installation',
+    name: 'installation',
   },
 
- 
+
   {
     type: 'input',
     message: 'describe how to use the project application',
-    name: 'Usage',
+    name: 'usage',
   },
   {
     type: 'input',
     message: 'providing testing instructions:',
-    name: 'Tests',
+    name: 'tests',
   },
   {
     type: 'input',
@@ -41,11 +45,8 @@ const questions = [
   {
     type: 'list',
     message: 'enter the license for your project:',
-    name: 'License',
-    choices:['MIT', 'MPL','GNU GPL v2'],
-    Filter(val) {
-      return val.toLowercase();
-    }
+    name: 'license',
+    choices: ['MIT', 'MPL 2.0', 'GNU GPL v2.0']
   },
   {
     type: 'input',
@@ -54,38 +55,37 @@ const questions = [
   },
 ];
 
-       
+
 
 // function to write README file
-function writeToFile(fileName, data) {
- 
-  fs.writeFile("README.md", generateMarkdown(data), (err) => {
-    if (err) {
-       console.log('could not save file', err)
-     } else {
-       console.log('Success: new README.md generated inside current folder')
-     }
-    console.log(err)
- // `!`
+function writeToFile(fileName, markdownData) {
 
-})
+  fs.writeFile("README.md", markdownData, (err) => {
+    if (err) {
+      console.log('could not save file', err)
+    } else {
+      console.log('Success: new README.md generated inside current folder')
+    }
+
+
+  })
 }
 
 // function to initialize program
 function init() {
-inquirer.prompt(questions)
-.then(data =>{ 
-  console.log("DATA: ", data)
-  
-  writeToFile("README.md", generateMarkdown(data))// ,(err) => {
-  // if (err) {
-   //   console.log('could not save file', err)
-   // } else {
-   //   console.log('Success: new README.md generated inside current folder')
-   // }
-    
-//console.log(err)
-  });
+  inquirer.prompt(questions)
+    .then(data => {
+      // console.log("DATA: ", data)
+
+      writeToFile("README.md", generateMarkdown(data))// ,(err) => {
+      // if (err) {
+      //   console.log('could not save file', err)
+      // } else {
+      //   console.log('Success: new README.md generated inside current folder')
+      // }
+
+      //console.log(err)
+    });
 };
 
 

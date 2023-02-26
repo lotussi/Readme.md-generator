@@ -1,0 +1,25 @@
+ 
+ # Readme.md-generator
+ ## Discription
+ This webpage generates a professional Readme.md file by using a command line application.
+## Installation
+ To install necessary dependencies, run following command: npm i inquirer@6.5.0
+
+ ## Usage
+   you can use this application by running node index.js. 
+   fs.writeFile is used to generate project's README.md file.
+## Tests
+The application can be accessed and tested following the link to GitHub repository
+
+Application demo
+link to walkthrough video
+
+ ## License
+   This project is licensed under the MIT license.
+
+MIT License
+
+## Questions
+Github:
+Email:
+ 
