@@ -60,7 +60,7 @@ const questions = [
 // function to write README file
 function writeToFile(fileName, markdownData) {
 
-  fs.writeFile("README.md", markdownData, (err) => {
+  fs.writeFile(fileName, markdownData, (err) => {
     if (err) {
       console.log('could not save file', err)
     } else {
@@ -75,23 +75,22 @@ function writeToFile(fileName, markdownData) {
 function init() {
   inquirer.prompt(questions)
     .then(data => {
-      // console.log("DATA: ", data)
+       // console.log("DATA: ", data)
 
       writeToFile("README.md", generateMarkdown(data))// ,(err) => {
-      // if (err) {
+         // if (err) {
       //   console.log('could not save file', err)
       // } else {
       //   console.log('Success: new README.md generated inside current folder')
       // }
 
       //console.log(err)
+    
     });
+    
 };
 
 
-
 //console.log(err)
-
-
 // function call to initialize program
 init();

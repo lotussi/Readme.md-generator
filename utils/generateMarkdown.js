@@ -1,3 +1,6 @@
+
+
+
 //function to render license badge
 
 function renderBadge(licenseChoice) {

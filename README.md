@@ -8,7 +8,7 @@
   ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
-  gcui
+  command line application
 ## Table of content
 
   - [Installation](#installation)
@@ -18,23 +18,23 @@
   - [Contributing](#contributing-here-is-a-heading)
   - [Questions](#questions)
 ## Installation
-  gedwjk
+  npm i inquirer
   
 ## Usage
-  dhjcwsak
+  node index.js
 
 
 ## License
   MIT
 
 ## Tests
-  wgdjwi
+  github
    
 ## Contributing
-  uhcjd
+  raji
 
 ## Questions
-  hdwjiic
+  contact information
 
 
 
